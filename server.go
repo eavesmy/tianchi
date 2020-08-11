@@ -1,0 +1,5 @@
+package tianchi
+
+func NewServer() {
+
+}
