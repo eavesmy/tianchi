@@ -4,8 +4,9 @@
 package tianchi
 
 import (
-	"github.com/satori/go.uuid"
 	"net/http"
+
+	uuid "github.com/satori/go.uuid"
 )
 
 var pool *Pool
@@ -23,7 +24,7 @@ func NewClient(remoteAddr string, confs ...Config) (c *Client, err error) {
 		HttpHeader:     http.Header{},
 		SendBufferSize: 2048,
 	}
-	uid, _ := uuid.NewV4()
+	uid := uuid.NewV4()
 	c = &Client{
 		id:               uid.String(),
 		remoteAddr:       conf.RemoteAddr,
