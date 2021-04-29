@@ -24,6 +24,14 @@ func NewClient(remoteAddr string, confs ...Config) (c *Client, err error) {
 		HttpHeader:     http.Header{},
 		SendBufferSize: 2048,
 	}
+
+	if len(confs) > 0 {
+		conf = confs[0]
+		conf.RemoteAddr = remoteAddr
+
+		conf.Init()
+	}
+
 	uid := uuid.NewV4()
 	c = &Client{
 		id:               uid.String(),
