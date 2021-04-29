@@ -16,7 +16,7 @@ var pool *Pool
 // 建立链接池
 
 // 由协议升级
-func NewClient(remoteAddr string, confs ...Config) (c *Client, err error) {
+func NewClient(remoteAddr string, confs ...*Config) (c *Client, err error) {
 	conf := &Config{
 		RemoteAddr:     remoteAddr,
 		BufferSize:     2048,
